@@ -1,13 +1,21 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort"],
+  "plugins": [
+    "@typescript-eslint", 
+    "prettier", 
+    "simple-import-sort", 
+    "jest", 
+    "testing-library"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "next",
     "next/core-web-vitals",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended",
+    "plugin:testing-library/react"
   ],
   "rules": {
     "prettier/prettier": ["error"],
@@ -27,5 +35,8 @@
     "react": {
       "version": "detect"
     }
+  },
+  "env": {
+    "jest/globals": true
   }
 }

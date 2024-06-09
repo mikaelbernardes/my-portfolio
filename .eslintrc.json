@@ -2,10 +2,10 @@
   "root": true,
   "parser": "@typescript-eslint/parser",
   "plugins": [
-    "@typescript-eslint", 
-    "prettier", 
-    "simple-import-sort", 
-    "jest", 
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort",
+    "jest",
     "testing-library"
   ],
   "extends": [
@@ -15,15 +15,29 @@
     "next/core-web-vitals",
     "plugin:prettier/recommended",
     "plugin:jest/recommended",
-    "plugin:testing-library/react"
+    "plugin:testing-library/react",
+    "plugin:storybook/recommended"
   ],
   "rules": {
-    "prettier/prettier": ["error"],
-    "quotes": ["error", "double"],
-    "semi": ["error", "always"],
+    "prettier/prettier": [
+      "error"
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-console": "warn",

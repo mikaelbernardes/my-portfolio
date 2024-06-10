@@ -52,7 +52,6 @@ describe("useThemeStore", () => {
   });
 
   it("should rehydrate the theme from localStorage", () => {
-    // Simulate rehydration from localStorage
     localStorage.setItem(
       "theme",
       JSON.stringify({ state: { theme: "light" }, version: 0 }),

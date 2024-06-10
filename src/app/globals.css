@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bg-100 {
+    @apply bg-BG100Light dark:bg-BG100Dark
+  }
+
+  .bg-300 {
+    @apply bg-BG300Light dark:bg-BG300Dark
+  }
+
+  .bg-500 {
+    @apply bg-BG500Light dark:bg-BG500Dark
+  }
+
+  .txt-100 {
+    @apply text-TXT100Light dark:text-TXT100Dark
+  }
+
+  .txt-300 {
+    @apply text-TXT300Light dark:text-TXT300Dark
+  }
+}

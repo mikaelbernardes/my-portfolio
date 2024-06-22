@@ -18,6 +18,7 @@ const config: Config = {
       transparent: "transparent",
     },
   },
+  darkMode: "class",
   plugins: [],
 };
 export default config;

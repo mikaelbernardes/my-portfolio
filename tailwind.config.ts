@@ -17,6 +17,11 @@ const config: Config = {
       Primary: "#00BC91",
       transparent: "transparent",
     },
+    screens: {
+      sm: { min: "320px", max: "743px" },
+      md: { min: "744px", max: "1279px" },
+      lg: { min: "1280px" },
+    },
   },
   darkMode: "class",
   plugins: [],

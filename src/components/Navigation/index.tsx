@@ -1,11 +1,11 @@
 "use client";
-import { useLanguageStore } from "@/stores/useLanguageStore";
+import { useLanguageStore } from "@/factory/STORE_FACTORY/impls";
 
 import { countryFlag, NavigationItems } from "./data";
 import { NavigationItem } from "./NavigationItem";
 
 function Navigation() {
-  const { language, toggleLanguage } = useLanguageStore();
+  const { language, toggle } = useLanguageStore();
 
   return (
     <nav className="flex flex-col items-center gap-5 py-4 px-1 bg-300 rounded-2xl">
@@ -22,7 +22,7 @@ function Navigation() {
           key={index}
           icon={item.img}
           name={language === "en" ? item.americanName : item.brazilianName}
-          onClick={item.language === language ? () => {} : toggleLanguage}
+          onClick={item.language === language ? () => {} : toggle}
         />
       ))}
     </nav>

@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 
 export default function Home() {
   return (
-    <main className="w-screen h-screen flex items-center justify-center">
+    <main className="w-screen h-screen flex items-center justify-center bg-100">
       <Navigation />
     </main>
   );

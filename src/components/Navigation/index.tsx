@@ -1,5 +1,5 @@
 "use client";
-import { useLanguageStore } from "@/shared/stores/useLanguageStore";
+import { useLanguageStore } from "@/stores/useLanguageStore";
 
 import { countryFlag, NavigationItems } from "./data";
 import { NavigationItem } from "./NavigationItem";

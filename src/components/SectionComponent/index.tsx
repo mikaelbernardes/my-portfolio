@@ -16,6 +16,7 @@ function SectionComponent({
   return (
     <section
       id={id}
+      data-testid={id}
       className="flex flex-col sm:p-5 md:p-10 lg:p-[60px] sm:w-full md:w-[664px] lg:w-[960px] h-fit bg-300 md:rounded-[14px] lg:rounded-[14px] sm:gap-5 md:gap-10 lg:gap-10 relative"
     >
       {title && Icon && (

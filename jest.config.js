@@ -3,11 +3,13 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|less|sass|scss)$": "identity-obj-proxy",
     "^@/(.*)$": "<rootDir>/src/$1",
+    "^@public/(.*)$": "<rootDir>/public/$1",
   },
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
-  transformIgnorePatterns: ["<rootDir>/node_modules/"],
+  transformIgnorePatterns: ["/node_modules/"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };

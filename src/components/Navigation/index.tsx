@@ -8,7 +8,7 @@ function Navigation() {
   const { language, toggle } = useLanguageStore();
 
   return (
-    <nav className="sm:hidden md:hidden lg:flex flex-col items-center gap-5 py-4 px-1 bg-300 rounded-2xl fixed right-20">
+    <nav className="sm:hidden md:hidden lg:flex flex-col items-center gap-5 py-4 px-1 bg-300 rounded-2xl fixed top-1/2 -translate-y-1/2 right-20 z-50">
       {NavigationItems.map((item, index) => (
         <NavigationItem
           key={index}

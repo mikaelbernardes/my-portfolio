@@ -1,10 +1,11 @@
 import { IoMoon, IoSunny } from "react-icons/io5";
 
 import { SectionComponent } from "@/components/SectionComponent";
-import { useThemeStore } from "@/factory/STORE_FACTORY/impls";
+import { useLanguageStore, useThemeStore } from "@/factory/STORE_FACTORY/impls";
 
 function PerfilSection() {
   const { theme, toggle } = useThemeStore();
+  const { language } = useLanguageStore();
 
   const iconThemeStyle =
     "text-3xl text-Primary absolute right-5 top-5 cursor-pointer transition-all";
@@ -23,7 +24,9 @@ function PerfilSection() {
             Mikael Bernardes
           </h2>
           <h3 className="sm:text-sm md:text-[28px] lg:text-[28px] text-Primary">
-            Desenvolvedor Frontend
+            {language === "pt-BR"
+              ? "Desenvolvedor Frontend"
+              : "Frontend Developer"}
           </h3>
         </div>
       </div>

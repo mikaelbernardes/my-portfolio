@@ -22,7 +22,7 @@ function SectionComponent({
       {title && Icon && (
         <div
           className={`
-          sm:w-[82px] md:w-[110px] lg:w-[110px] sm:h-6 md:h-[38px] lg:h-[38px] sm:px-[10px] sm:py-1 md:px-[10px] md:py-[6px]
+          w-fit h-fit sm:px-[10px] sm:py-1 md:px-[10px] md:py-[6px]
           lg:px-[10px] lg:py-[6px] gap-[10px] rounded-md border border-TXT300Light dark:border-TXT300Dark flex items-center
         `}
         >

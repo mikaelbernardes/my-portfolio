@@ -3,6 +3,7 @@
 import { Navigation } from "@/components/Navigation";
 import { useThemeStore } from "@/factory/STORE_FACTORY/impls";
 
+import { AboutSection } from "./_sections/AboutSection";
 import { HomeSection } from "./_sections/HomeSection";
 import { PerfilSection } from "./_sections/PerfilSection";
 
@@ -17,6 +18,7 @@ export default function Home() {
         <Navigation />
         <PerfilSection />
         <HomeSection />
+        <AboutSection />
       </div>
     </main>
   );

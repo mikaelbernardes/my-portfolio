@@ -20,7 +20,7 @@ function HomeSection() {
           {language === "en" ? "Frontend Developer" : "Pleno"}
         </h3>
       </div>
-      <p className="sm:text-sm md:text-lg lg:text-lg txt-300 lg:w-3/4">
+      <div className="sm:text-sm md:text-lg lg:text-lg txt-300 lg:w-3/4">
         {language === "en" ? (
           <p>
             As a <span className="txt-100">Pleno Frontend Developer</span>, I
@@ -36,7 +36,7 @@ function HomeSection() {
             sucesso de cada projeto.
           </p>
         )}
-      </p>
+      </div>
     </SectionComponent>
   );
 }

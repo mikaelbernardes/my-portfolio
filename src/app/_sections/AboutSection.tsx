@@ -23,7 +23,7 @@ function AboutSection() {
           </h2>
         )}
       </div>
-      <p className="sm:text-sm md:text-lg lg:text-lg txt-300">
+      <div className="sm:text-sm md:text-lg lg:text-lg txt-300">
         {language === "en" ? (
           <p>
             Mikael, a <span className="txt-100">Full Stack Developer</span>
@@ -124,7 +124,7 @@ function AboutSection() {
             profissional.
           </p>
         )}
-      </p>
+      </div>
     </SectionComponent>
   );
 }

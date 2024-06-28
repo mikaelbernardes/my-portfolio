@@ -6,6 +6,7 @@ import { useThemeStore } from "@/factory/STORE_FACTORY/impls";
 import { AboutSection } from "./_sections/AboutSection";
 import { HomeSection } from "./_sections/HomeSection";
 import { PerfilSection } from "./_sections/PerfilSection";
+import { ResumeSection } from "./_sections/ResumeSection";
 
 export default function Home() {
   const { theme } = useThemeStore();
@@ -19,6 +20,7 @@ export default function Home() {
         <PerfilSection />
         <HomeSection />
         <AboutSection />
+        <ResumeSection />
       </div>
     </main>
   );

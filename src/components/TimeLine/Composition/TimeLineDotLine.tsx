@@ -7,7 +7,7 @@ export interface TimeLineDotLineProps {
 
 function TimeLineDotLine({ isLast, lineHeight }: TimeLineDotLineProps) {
   return (
-    <div className="flex flex-col items-center mt-[6px]">
+    <div className="sm:hidden md:hidden lg:flex flex-col items-center mt-[6px]">
       <TimelineDot />
       {!isLast && (
         <div

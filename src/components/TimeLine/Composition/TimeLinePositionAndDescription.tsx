@@ -17,7 +17,10 @@ function TimeLinePositionAndDescription({
       <h4 className="font-medium lg:text-[26px] txt-100">
         {language === "en" ? experience.positionEN : experience.positionPT}
       </h4>
-      <p ref={descriptionRef} className="font-light lg:text-base txt-300 w-80">
+      <p
+        ref={descriptionRef}
+        className="font-light lg:text-base txt-300 sm:w-full w-80"
+      >
         {language === "en"
           ? experience.descriptionEN
           : experience.descriptionPT}

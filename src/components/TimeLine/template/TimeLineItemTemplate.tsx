@@ -25,7 +25,7 @@ function TimelineItemTemplate({
   }, [experience]);
 
   return (
-    <div className="flex mb-20 w-full relative justify-between">
+    <div className="flex sm:flex-col md:flex-row lg:flex-row sm:bg-500 sm:p-3 sm:mb-5 mb-20 w-full relative sm:gap-4 justify-between">
       <TimeLineCompanyAndDates experience={experience} />
       <TimeLineDotLine isLast={isLast} lineHeight={lineHeight} />
       <TimeLinePositionAndDescription

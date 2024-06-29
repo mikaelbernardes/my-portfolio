@@ -5,6 +5,7 @@ import { useThemeStore } from "@/factory/STORE_FACTORY/impls";
 
 import { AboutSection } from "./_sections/AboutSection";
 import { BlogSection } from "./_sections/BlogSection";
+import { ContactsSection } from "./_sections/ContactsSection";
 import { HomeSection } from "./_sections/HomeSection";
 import { PerfilSection } from "./_sections/PerfilSection";
 import { ResumeSection } from "./_sections/ResumeSection";
@@ -23,6 +24,7 @@ export default function Home() {
         <AboutSection />
         <ResumeSection />
         <BlogSection />
+        <ContactsSection />
       </div>
     </main>
   );

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaHouse } from "react-icons/fa6";
+import { FaFile } from "react-icons/fa6";
 
 import { BlogCard } from "@/components/BlogCard";
 import { SectionComponent } from "@/components/SectionComponent";
@@ -8,7 +8,7 @@ import { useLanguageStore } from "@/factory/STORE_FACTORY/impls";
 function BlogSection() {
   const { language } = useLanguageStore();
   return (
-    <SectionComponent id="blog" icon={FaHouse} title="Blog">
+    <SectionComponent id="blog" icon={FaFile} title="Blog">
       <div className="w-full h-fit flex flex-wrap justify-center gap-[60px]">
         {Array.from({ length: 4 }).map((item, index) => (
           <BlogCard

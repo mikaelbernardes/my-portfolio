@@ -1,4 +1,4 @@
-import { FaHouse } from "react-icons/fa6";
+import { FaFolderOpen } from "react-icons/fa";
 
 import { SectionComponent } from "@/components/SectionComponent";
 import { TimelineTemplate } from "@/components/TimeLine/template/TimeLineTemplate";
@@ -11,8 +11,8 @@ function ResumeSection() {
 
   return (
     <SectionComponent
-      id="home"
-      icon={FaHouse}
+      id="resume"
+      icon={FaFolderOpen}
       title={language === "en" ? "Resume" : "Currículo"}
     >
       <div className="sm:text-[28px] md:text-[56px] lg:text-[56px] txt-100 font-light">

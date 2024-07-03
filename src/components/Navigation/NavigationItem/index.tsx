@@ -16,7 +16,12 @@ function NavigationItem({ icon, name, link, onClick }: NavigationItemProps) {
   return (
     <div className="group relative bg-300 rounded-full">
       {link ? (
-        <Link href={link}>{content({ icon, name })}</Link>
+        <div
+          className={`transition-all p-2 rounded-full ${isReactIcon ? "hover:bg-500" : ""} txt-300 hover:text-Primary cursor-pointer`}
+          onClick={onClick}
+        >
+          <Link href={link}>{content({ icon, name })}</Link>
+        </div>
       ) : (
         <div
           className={`transition-all p-2 rounded-full ${isReactIcon ? "hover:bg-500" : ""} txt-300 hover:text-Primary cursor-pointer`}

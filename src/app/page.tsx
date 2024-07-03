@@ -8,6 +8,7 @@ import { BlogSection } from "./_sections/BlogSection";
 import { ContactsSection } from "./_sections/ContactsSection";
 import { HomeSection } from "./_sections/HomeSection";
 import { PerfilSection } from "./_sections/PerfilSection";
+import { ProjectSection } from "./_sections/ProjectsSection";
 import { ResumeSection } from "./_sections/ResumeSection";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <Navigation />
         <PerfilSection />
         <HomeSection />
+        <ProjectSection />
         <AboutSection />
         <ResumeSection />
         <BlogSection />

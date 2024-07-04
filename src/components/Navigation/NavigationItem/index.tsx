@@ -7,17 +7,24 @@ import { IconType } from "react-icons";
 interface NavigationItemProps {
   icon: IconType | StaticImport;
   name: string;
+  isActive?: boolean;
   link?: string;
   onClick?: () => void;
 }
 
-function NavigationItem({ icon, name, link, onClick }: NavigationItemProps) {
+function NavigationItem({
+  icon,
+  name,
+  isActive,
+  link,
+  onClick,
+}: NavigationItemProps) {
   const isReactIcon = typeof icon === "function";
   return (
     <div className="group relative bg-300 rounded-full">
       {link ? (
         <div
-          className={`transition-all p-2 rounded-full ${isReactIcon ? "hover:bg-500" : ""} txt-300 hover:text-Primary cursor-pointer`}
+          className={`transition-all p-2 rounded-full hover:text-Primary dark:hover:text-Primary ${isReactIcon ? "hover:bg-500" : ""}  ${isActive ? "bg-500 text-Primary" : "txt-300"} cursor-pointer`}
           onClick={onClick}
         >
           <Link href={link}>{content({ icon, name })}</Link>

@@ -11,7 +11,7 @@ function PerfilSection() {
     "text-3xl text-Primary absolute right-5 top-5 cursor-pointer transition-all";
 
   return (
-    <SectionComponent id="perfil">
+    <SectionComponent id="home">
       {theme === "dark" ? (
         <IoMoon className={iconThemeStyle} onClick={toggle} />
       ) : (

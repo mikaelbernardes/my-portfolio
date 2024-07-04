@@ -4,7 +4,11 @@ import { useLanguageStore } from "@/factory/STORE_FACTORY/impls";
 import { countryFlag, NavigationItems } from "./data";
 import { NavigationItem } from "./NavigationItem";
 
-function Navigation() {
+interface NavigationProps {
+  isActiveItem: string;
+}
+
+function Navigation({ isActiveItem }: NavigationProps) {
   const { language, toggle } = useLanguageStore();
 
   return (
@@ -15,6 +19,7 @@ function Navigation() {
           icon={item.icon}
           name={language === "en" ? item.americanName : item.brazilianName}
           link={item.link}
+          isActive={isActiveItem === item.link.replace("#", "")}
         />
       ))}
       <hr className="border w-full border-BG500Light dark:border-BG500Dark" />

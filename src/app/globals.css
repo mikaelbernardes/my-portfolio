@@ -23,3 +23,15 @@
     @apply text-TXT300Light dark:text-TXT300Dark
   }
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-500
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-Primary;
+}

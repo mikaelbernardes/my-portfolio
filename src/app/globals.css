@@ -22,6 +22,19 @@
   .txt-300 {
     @apply text-TXT300Light dark:text-TXT300Dark
   }
+
+  .search-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .search-input::-webkit-search-decoration,
+  .search-input::-webkit-search-cancel-button,
+  .search-input::-webkit-search-results-button,
+  .search-input::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
 }
 
 ::-webkit-scrollbar {

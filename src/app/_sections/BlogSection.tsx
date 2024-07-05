@@ -20,7 +20,7 @@ function BlogSection() {
           />
         ))}
         <Link
-          href={""}
+          href="/blog"
           className="w-1/2 bg-Primary rounded-md hover:brightness-110 transition-all text-TXT100Dark py-2 flex items-center justify-center"
         >
           {language === "en" ? "See All Posts" : "Ver Todos os Posts"}

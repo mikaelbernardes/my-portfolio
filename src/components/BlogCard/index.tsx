@@ -46,7 +46,7 @@ function BlogCard({ title, icons, tags, link }: BlogCardProps) {
         })}
       </div>
       <h3 className="txt-100 font-semibold text-2xl">{title}</h3>
-      <div className="mt-5">
+      <div className="mt-5 flex gap-4">
         {tags.map((tag, index) => (
           <div
             className="bg-Primary txt-100 uppercase w-fit h-fit px-3 py-[2px] rounded-[4px] text-xs"

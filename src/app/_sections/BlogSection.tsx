@@ -4,19 +4,24 @@ import { FaFile } from "react-icons/fa6";
 import { BlogCard } from "@/components/BlogCard";
 import { SectionComponent } from "@/components/SectionComponent";
 import { useLanguageStore } from "@/factory/STORE_FACTORY/impls";
+import { useFilterPosts } from "@/hooks/useFilterPosts";
+import { Posts } from "@/types/PostTypes";
 
-function BlogSection() {
+function BlogSection({ posts }: Posts) {
   const { language } = useLanguageStore();
+  const { postFilteredByLanguage } = useFilterPosts({ posts });
   return (
     <SectionComponent id="blog" icon={FaFile} title="Blog">
       <div className="w-full h-fit flex flex-wrap justify-center gap-[60px]">
-        {Array.from({ length: 4 }).map((item, index) => (
+        {postFilteredByLanguage.slice(-4).map((item) => (
           <BlogCard
-            key={index}
-            icons={["javascript", "nodejs", "react"]}
-            tags={["javascript"]}
-            title="Title tal"
-            link=""
+            key={item.id}
+            icons={item.cardImages}
+            tags={item.tags}
+            title={
+              language === "en" ? item.titleInEnglish : item.titleInPortuguese
+            }
+            link={item.slug}
           />
         ))}
         <Link

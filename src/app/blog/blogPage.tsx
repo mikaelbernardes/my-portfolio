@@ -1,6 +1,7 @@
 "use client";
 import { BlogCard } from "@/components/BlogCard";
 import { Input } from "@/components/Input";
+import { Navigation } from "@/components/Navigation";
 import { useLanguageStore, useThemeStore } from "@/factory/STORE_FACTORY/impls";
 import { useFilterPosts } from "@/hooks/useFilterPosts";
 import { Posts } from "@/types/PostTypes";
@@ -15,6 +16,7 @@ function BlogPage({ posts }: Posts) {
   } = useFilterPosts({ posts });
   return (
     <div className={`w-full h-screen ${theme === "dark" ? "dark" : ""}`}>
+      <Navigation isActiveItem="" />
       <main className="bg-100 w-full h-screen flex flex-col items-center py-14">
         <div className="flex flex-col sm:p-5 md:p-10 lg:p-[60px] sm:w-full md:w-[664px] lg:w-[960px] h-fit bg-300 md:rounded-[14px] lg:rounded-[14px] sm:gap-5 md:gap-10 lg:gap-10 relative">
           <Input

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IconType } from "react-icons";
-import { FaFileCode, FaJs, FaNode, FaReact } from "react-icons/fa";
+import { FaJs, FaNodeJs, FaReact } from "react-icons/fa";
+import { SiTypescript } from "react-icons/si";
 
 interface BlogCardProps {
   title: string;
@@ -19,9 +20,9 @@ function getIconByName(name: string): IconInfo | null {
     case "javascript":
       return { icon: FaJs, color: "#f0db4f" };
     case "typescript":
-      return { icon: FaFileCode, color: "#3178c6" };
+      return { icon: SiTypescript, color: "#3178c6" };
     case "nodejs":
-      return { icon: FaNode, color: "#68a063" };
+      return { icon: FaNodeJs, color: "#68a063" };
     case "react":
       return { icon: FaReact, color: "#61dafb" };
     default:
@@ -32,7 +33,7 @@ function getIconByName(name: string): IconInfo | null {
 function BlogCard({ title, icons, tags, link }: BlogCardProps) {
   return (
     <Link
-      href={link}
+      href={`/blog/${link}`}
       className="bg-500 w-[390px] h-[255px] rounded-md lg:p-5 hover:scale-[1.02] transition-all"
     >
       <div className="h-2/3 w-full flex items-center justify-center lg:gap-2">

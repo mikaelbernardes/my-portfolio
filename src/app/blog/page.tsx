@@ -9,6 +9,5 @@ import { BlogPage } from "./blogPage";
 export default async function Blog() {
   const posts = await getPosts();
 
-  console.log(posts);
   return <BlogPage posts={posts} />;
 }

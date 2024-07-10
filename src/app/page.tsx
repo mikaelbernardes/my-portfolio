@@ -1,57 +1,11 @@
-"use client";
+/* eslint-disable @next/next/no-async-client-component */
+"use server";
 
-import { useEffect, useState } from "react";
+import { getPosts } from "@/services/notionService";
 
-import { Navigation } from "@/components/Navigation";
-import { useThemeStore } from "@/factory/STORE_FACTORY/impls";
+import { PageComponent } from "./_pageComponent";
 
-import { AboutSection } from "./_sections/AboutSection";
-import { BlogSection } from "./_sections/BlogSection";
-import { ContactsSection } from "./_sections/ContactsSection";
-import { HomeSection } from "./_sections/HomeSection";
-import { PerfilSection } from "./_sections/PerfilSection";
-import { ProjectSection } from "./_sections/ProjectsSection";
-import { ResumeSection } from "./_sections/ResumeSection";
-
-export default function Home() {
-  const { theme } = useThemeStore();
-  const [activeSection, setActiveSection] = useState<string>("");
-  console.log(activeSection);
-
-  useEffect(() => {
-    const sections = document.querySelectorAll(".section");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
-
-  return (
-    <main
-      className={`w-full h-h-fit flex items-center justify-center bg-100 ${theme === "dark" ? "dark" : ""}`}
-    >
-      <div className="w-full h-fit flex flex-col items-center justify-center py-[60px] bg-100 gap-[60px] relative">
-        <Navigation isActiveItem={activeSection} />
-        <PerfilSection />
-        <HomeSection />
-        <ProjectSection />
-        <AboutSection />
-        <ResumeSection />
-        <BlogSection />
-        <ContactsSection />
-      </div>
-    </main>
-  );
+export default async function Home() {
+  const posts = await getPosts();
+  return <PageComponent posts={posts} />;
 }

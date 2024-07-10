@@ -1,6 +1,7 @@
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { IconType } from "react-icons";
 
@@ -19,20 +20,39 @@ function NavigationItem({
   link,
   onClick,
 }: NavigationItemProps) {
+  const pathname = usePathname();
+  const router = useRouter();
   const isReactIcon = typeof icon === "function";
+
+  const handleClick = (event: React.MouseEvent) => {
+    if (link) {
+      const [hash] = link.split("#");
+
+      if (pathname !== "/" && hash) {
+        event.preventDefault();
+        router.push("/");
+        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
     <div className="group relative bg-300 rounded-full">
       {link ? (
         <div
-          className={`transition-all p-2 rounded-full hover:text-Primary dark:hover:text-Primary ${isReactIcon ? "hover:bg-500" : ""}  ${isActive ? "bg-500 text-Primary" : "txt-300"} cursor-pointer`}
-          onClick={onClick}
+          className={`transition-all p-2 rounded-full hover:text-Primary dark:hover:text-Primary ${isReactIcon ? "hover:bg-500" : ""} ${isActive ? "bg-500 text-Primary" : "txt-300"} cursor-pointer`}
+          onClick={handleClick}
         >
           <Link href={link}>{content({ icon, name })}</Link>
         </div>
       ) : (
         <div
           className={`transition-all p-2 rounded-full ${isReactIcon ? "hover:bg-500" : ""} txt-300 hover:text-Primary cursor-pointer`}
-          onClick={onClick}
+          onClick={handleClick}
         >
           {content({ icon, name })}
         </div>

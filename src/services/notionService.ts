@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 import { Client } from "@notionhq/client";
 import { NotionToMarkdown } from "notion-to-md";
@@ -50,7 +51,7 @@ export async function getPost(slug: string) {
     filter: {
       or: [
         {
-          property: "slug",
+          property: "Slug",
           rich_text: {
             equals: slug,
           },

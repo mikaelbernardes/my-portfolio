@@ -1,33 +1,12 @@
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { FaJs, FaNodeJs, FaReact } from "react-icons/fa";
-import { SiTypescript } from "react-icons/si";
+
+import { getIconByName } from "./transformNameInIcon";
 
 interface BlogCardProps {
   title: string;
   icons: string[];
   tags: string[];
   link: string;
-}
-
-interface IconInfo {
-  icon: IconType;
-  color: string;
-}
-
-function getIconByName(name: string): IconInfo | null {
-  switch (name.toLowerCase()) {
-    case "javascript":
-      return { icon: FaJs, color: "#f0db4f" };
-    case "typescript":
-      return { icon: SiTypescript, color: "#3178c6" };
-    case "nodejs":
-      return { icon: FaNodeJs, color: "#68a063" };
-    case "react":
-      return { icon: FaReact, color: "#61dafb" };
-    default:
-      return null;
-  }
 }
 
 function BlogCard({ title, icons, tags, link }: BlogCardProps) {

@@ -26,12 +26,9 @@ function NavigationItem({
 
   const handleClick = (event: React.MouseEvent) => {
     if (link) {
-      const [hash] = link.split("#");
-
-      if (pathname !== "/" && hash) {
+      if (pathname === "/blog") {
         event.preventDefault();
         router.push("/");
-        document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
       }
     }
 
@@ -41,18 +38,16 @@ function NavigationItem({
   };
 
   return (
-    <div className="group relative bg-300 rounded-full">
+    <div className="group relative bg-300 rounded-full" onClick={handleClick}>
       {link ? (
         <div
           className={`transition-all p-2 rounded-full hover:text-Primary dark:hover:text-Primary ${isReactIcon ? "hover:bg-500" : ""} ${isActive ? "bg-500 text-Primary" : "txt-300"} cursor-pointer`}
-          onClick={handleClick}
         >
           <Link href={link}>{content({ icon, name })}</Link>
         </div>
       ) : (
         <div
           className={`transition-all p-2 rounded-full ${isReactIcon ? "hover:bg-500" : ""} txt-300 hover:text-Primary cursor-pointer`}
-          onClick={handleClick}
         >
           {content({ icon, name })}
         </div>

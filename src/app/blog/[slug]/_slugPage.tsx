@@ -6,12 +6,12 @@ import Image from "next/image";
 import { CSSProperties } from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { coy } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { coy, dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import rehypeRaw from "rehype-raw";
 import rehypeStringify from "rehype-stringify";
 import gfm from "remark-gfm";
 
-import { useLanguageStore } from "@/factory/STORE_FACTORY/impls";
+import { useLanguageStore, useThemeStore } from "@/factory/STORE_FACTORY/impls";
 
 interface SlugPageProps {
   post: {
@@ -33,14 +33,13 @@ function getLocalizedText(mdStringObject: string, language: string) {
 
 function SlugPage({ post }: SlugPageProps) {
   const { language } = useLanguageStore();
+  const { theme } = useThemeStore();
 
   const content = getLocalizedText(post.content, language);
 
   const stylesForMarkdown = {
     p: ({ _, children }: any) => (
-      <p className="xs:text-xs sm:text-xs md:text-sm lg:text-base xl:text-base text-TXT300">
-        {children}
-      </p>
+      <p className="sm:text-xs md:text-sm lg:text-lg txt-300">{children}</p>
     ),
     strong: ({ node, children }: any) => {
       return (
@@ -56,8 +55,8 @@ function SlugPage({ post }: SlugPageProps) {
       return (
         <h1
           className={`
-					text-Primary font-bold xs:text-xl xs:mt-4 xs:mb-4 sm:text-xl sm:mt-4 sm:mb-4 md:text-3xl 
-					md:mt-5 md:mb-5 lg:text-3xl lg:mt-5 lg:mb-5 xl:text-4xl xl:mt-6 xl:mb-6 
+					text-Primary font-bold sm:text-xl sm:mt-4 sm:mb-4 md:text-3xl 
+					md:mt-5 md:mb-5 lg:text-6xl lg:my-6
 				`}
         >
           {children}
@@ -67,10 +66,8 @@ function SlugPage({ post }: SlugPageProps) {
     h2: ({ node, children }: any) => {
       return (
         <h2
-          style={{ color: "transparent" }}
           className={`
-					font-semibold xs:text-lg xs:mt-5 xs:mb-3 sm:text-lg sm:mt-5 sm:mb-3 md:text-2xl md:mt-6 md:mb-4 lg:text-2xl lg:mt-6 lg:mb-4 xl:text-3xl xl:mt-7 
-					xl:mb-5 bg-gradient-to-r from-TXT100 to-TXT300 bg-clip-text text-transparent w-fit 
+					font-semibold sm:text-lg sm:mt-5 sm:mb-3 md:text-2xl md:mt-6 md:mb-4 lg:text-3xl lg:my-6 txt-100 
 				`}
         >
           {children}
@@ -81,8 +78,7 @@ function SlugPage({ post }: SlugPageProps) {
       return (
         <h3
           className={`
-					text-T300 font-medium xs:text-base xs:mt-3 xs:mb-3 sm:text-base sm:mt-3 sm:mb-3 md:text-xl md:mt-4 md:mb-4 lg:text-xl lg:mt-4 
-					lg:mb-4 xl:text-2xl xl:mt-5 xl:mb-5
+					text-T300 font-medium sm:text-base sm:mt-3 sm:mb-3 md:text-xl md:mt-4 md:mb-4 lg:text-xl lg:mt-4 lg:mb-4 txt-100
 				`}
         >
           {children}
@@ -94,11 +90,7 @@ function SlugPage({ post }: SlugPageProps) {
 
       const newStyles: CSSProperties = {
         marginTop: "10px",
-        border: "1px solid #DEDEDE",
-        boxShadow: "0px 0px 4px rgba(0, 0, 0, 0.25)",
-        borderRadius: "8px",
         marginBottom: "10px",
-        padding: "5px",
       };
 
       if (!match) {
@@ -112,7 +104,10 @@ function SlugPage({ post }: SlugPageProps) {
       const syntaxHighlighterProps = {
         language: match[1],
         PreTag: "div",
-        style: { ...coy, background: "none" },
+        style:
+          theme === "dark"
+            ? { ...dracula, background: "none" }
+            : { ...coy, background: "none" },
         ...props,
       };
 
@@ -137,7 +132,7 @@ function SlugPage({ post }: SlugPageProps) {
       <ul className="text-TXT300 list-inside list-disc ml-5">{children}</ul>
     ),
     ol: ({ node, children }: any) => (
-      <ol className="text-TXT300 list-inside list-decimal ml-5">{children}</ol>
+      <ol className="txt-3 00 list-inside list-decimal ml-5">{children}</ol>
     ),
     blockquote: ({ node, children }: any) => (
       <blockquote className="text-TXT300 border-l-4 border-Primary pl-4 py-2 my-4">
@@ -155,15 +150,17 @@ function SlugPage({ post }: SlugPageProps) {
   };
 
   return (
-    <main className="xs:px-5 sm:px-20 md:px-32 lg:px-56 xl:px-72 pb-4 xl:pb-12">
-      <ReactMarkdown
-        remarkPlugins={[gfm]}
-        rehypePlugins={[rehypeRaw, rehypeStringify]}
-        components={stylesForMarkdown}
-      >
-        {content}
-      </ReactMarkdown>
-    </main>
+    <div className={theme === "dark" ? "dark" : ""}>
+      <main className="-mt-5 sm:px-20 md:px-32 lg:px-72 py-10 xl:pb-12 bg-100 w-full h-fit">
+        <ReactMarkdown
+          remarkPlugins={[gfm]}
+          rehypePlugins={[rehypeRaw, rehypeStringify]}
+          components={stylesForMarkdown}
+        >
+          {content}
+        </ReactMarkdown>
+      </main>
+    </div>
   );
 }
 

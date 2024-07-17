@@ -63,7 +63,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body suppressHydrationWarning className={poppins.className}>
+      <body
+        suppressHydrationWarning
+        className={`${poppins.className} box-border`}
+      >
         {children}
       </body>
     </html>

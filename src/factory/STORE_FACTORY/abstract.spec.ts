@@ -50,4 +50,49 @@ describe("PersistedStoreFactory", () => {
     languageStore.toggle();
     expect(useLanguageStore.getState().language).toBe("en");
   });
+
+  it("should have a persist object", () => {
+    const store = PersistedStoreFactory.createStore({
+      name: "test",
+      initialState: { key: "value" },
+      toggleFunction: function (): Partial<{ key: string }> {
+        throw new Error("Function not implemented.");
+      },
+    });
+    expect(store.persist).toBeDefined();
+  });
+
+  it("should return true for hasHydrated after hydration", () => {
+    const store = PersistedStoreFactory.createStore({
+      name: "test",
+      initialState: { key: "value" },
+      toggleFunction: function (): Partial<{ key: string }> {
+        throw new Error("Function not implemented.");
+      },
+    });
+    expect(store.persist.hasHydrated()).toBe(true);
+  });
+
+  it("should call set with the correct state when toggle is called", () => {
+    const themeConfig: StoreConfig<ThemeState> = {
+      name: "theme",
+      initialState: { theme: "dark" },
+      toggleFunction: (state) => ({
+        theme: state.theme === "light" ? "dark" : "light",
+      }),
+    };
+
+    const useThemeStore = PersistedStoreFactory.createStore(themeConfig);
+    const themeStore = useThemeStore.getState();
+
+    const setSpy = jest.spyOn(themeStore, "toggle");
+
+    themeStore.toggle();
+    expect(setSpy).toHaveBeenCalled();
+    expect(useThemeStore.getState().theme).toBe("light");
+
+    themeStore.toggle();
+    expect(setSpy).toHaveBeenCalledTimes(2);
+    expect(useThemeStore.getState().theme).toBe("dark");
+  });
 });

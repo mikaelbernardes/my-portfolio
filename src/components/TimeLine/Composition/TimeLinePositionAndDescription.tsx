@@ -2,7 +2,7 @@ import { useLanguageStore } from "@/factory/STORE_FACTORY/impls";
 
 import { Experience } from "../types";
 
-interface TimeLinePositionAndDescription {
+export interface TimeLinePositionAndDescriptionProps {
   experience: Experience;
   descriptionRef: React.RefObject<HTMLParagraphElement>;
 }
@@ -10,7 +10,7 @@ interface TimeLinePositionAndDescription {
 function TimeLinePositionAndDescription({
   descriptionRef,
   experience,
-}: TimeLinePositionAndDescription) {
+}: TimeLinePositionAndDescriptionProps) {
   const { language } = useLanguageStore();
   return (
     <div className="flex flex-col -mt-1">

@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import { IconType } from "react-icons";
 
-interface NavigationItemProps {
+export interface NavigationItemProps {
   icon: IconType | StaticImport;
   name: string;
   isActive?: boolean;

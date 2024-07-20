@@ -5,7 +5,7 @@ import { TimeLineDotLine } from "../Composition/TimeLineDotLine";
 import { TimeLinePositionAndDescription } from "../Composition/TimeLinePositionAndDescription";
 import { Experience } from "../types";
 
-interface TimelineItemTemplateProps {
+export interface TimelineItemTemplateProps {
   experience: Experience;
   isLast: boolean;
 }

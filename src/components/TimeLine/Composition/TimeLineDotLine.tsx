@@ -11,6 +11,7 @@ function TimeLineDotLine({ isLast, lineHeight }: TimeLineDotLineProps) {
       <TimelineDot />
       {!isLast && (
         <div
+          data-testid="line-element"
           className="w-px absolute bg-TXT300Light dark:bg-TXT300Dark"
           style={{ height: lineHeight ? `${lineHeight + 120}px` : "100%" }}
         ></div>

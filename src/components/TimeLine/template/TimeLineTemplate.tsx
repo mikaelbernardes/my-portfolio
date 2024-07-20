@@ -3,7 +3,7 @@ import React from "react";
 import { Experience } from "../types";
 import { TimelineItemTemplate } from "./TimeLineItemTemplate";
 
-interface TimelineTemplateProps {
+export interface TimelineTemplateProps {
   data: Experience[];
 }
 
